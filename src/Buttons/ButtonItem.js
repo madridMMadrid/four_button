@@ -9,25 +9,12 @@ const styles = {
   },
 }
 
-const onClick = event => {
-  setTimeout(() => {
-
-    return [{
-      id: Date.now(),
-      time: new Date().toLocaleTimeString(),
-      lastDate: new Date().toLocaleTimeString(),
-      title: 'jhjh',
-      disabled: false
-    }]
-  }, 1000)
-}
 
 const AddLog = ({ button, index }) => {
   const { addLog } = useContext(Context)
   return (
     <div style={styles.div}>
-      {/* <button disabled={button.disabled}  className="rm" onClick={addLog.bind(null, button)}>{button.title} {++index}</button> */}
-      <button disabled={button.disabled} className="rm" onClick={() => onClick()}>{button.title} {++index}</button>
+      <button disabled={button.disabled}  className="rm" onClick={addLog.bind(null, button)}>{button.title} {++index}</button>
     </div>
   )
 }

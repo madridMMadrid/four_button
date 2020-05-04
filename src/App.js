@@ -11,15 +11,7 @@ function App() {
     { id: 3, title: 'Кнопка', disabled: false }
   ])
 
-  const [logs, setLog] = React.useState([
-    {
-      id: Date.now(),
-      time: new Date().toLocaleTimeString(),
-      lastDate: new Date().toLocaleTimeString(),
-      title: 'jhjh',
-      disabled: false
-    }
-  ])
+  const [logs, setLog] = React.useState([])
 
 
   const removeLog = () => {
@@ -40,17 +32,17 @@ function App() {
     let time = Date.now()
     let date = new Date().toLocaleTimeString()
     let id = title.id
-    // let a = [{
-    //   id: time,
-    //   time: date,
-    //   lastDate: new Date().toLocaleTimeString(),
-    //   title,
-    //   disabled: false
-    // }]
+    let a = [{
+      id: time,
+      time: date,
+      lastDate: new Date().toLocaleTimeString(),
+      title,
+      disabled: false
+    }]
 
     disabledButton(id)
     setTimeout(() => {
-      // setLog(logs.concat(a))
+      setLog(logs.concat(a))
       disabledButton(id)
     }, timeout);
   }
