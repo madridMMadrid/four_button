@@ -20,9 +20,9 @@ function App() {
 
   const disabledButton = (id) => {
     setButton(button.map(button => {
-      // if (button.id === id) {
+      if (button.id === id) {
         button.disabled = !button.disabled
-      // }
+      }
       return button
     }))
   }
@@ -42,7 +42,7 @@ function App() {
 
     disabledButton(id)
     setTimeout(() => {
-      setLog(logs.concat(a))
+      setLog(oldLogs => oldLogs.concat(a))
       disabledButton(id)
     }, timeout);
   }
