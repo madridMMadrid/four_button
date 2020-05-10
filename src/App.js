@@ -10,19 +10,12 @@ function App() {
     { id: 2, title: 'Кнопка', disabled: false },
     { id: 3, title: 'Кнопка', disabled: false }
   ])
-
   const [logs, setLog] = React.useState([])
-
-
-  const removeLog = () => {
-    setLog([])
-  }
+  const removeLog = () => {setLog([])}
 
   const disabledButton = (id) => {
     setButton(button.map(button => {
-      if (button.id === id) {
-        button.disabled = !button.disabled
-      }
+      if (button.id === id) button.disabled = !button.disabled
       return button
     }))
   }
@@ -32,17 +25,16 @@ function App() {
     let time = Date.now()
     let date = new Date().toLocaleTimeString()
     let id = title.id
-    let a = [{
+    let newLog = [{
       id: time,
       time: date,
       lastDate: new Date().toLocaleTimeString(),
       title,
       disabled: false
     }]
-
     disabledButton(id)
     setTimeout(() => {
-      setLog(oldLogs => oldLogs.concat(a))
+      setLog(oldLogs => oldLogs.concat(newLog).sort((a, b) => b.id - a.id))
       disabledButton(id)
     }, timeout);
   }
